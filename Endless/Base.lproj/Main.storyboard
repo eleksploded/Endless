@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -487,11 +486,14 @@
                                                             <action selector="FiberButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="W5E-BA-l86"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB1-as-Vhs">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-cE-HlC">
                                                         <rect key="frame" x="328.33333333333326" y="0.0" width="65.666666666666686" height="30"/>
-                                                        <state key="normal" title="Start"/>
+                                                        <state key="normal" title="Button"/>
                                                         <connections>
-                                                            <action selector="UPDATE:" destination="BV1-FR-VrT" eventType="touchUpInside" id="w4o-DO-8co"/>
+                                                            <action selector="ChangeScreen:" destination="BV1-FR-VrT" eventType="touchUpInside" id="TOn-Do-bQd"/>
+                                                            <segue destination="Qep-LV-eRn" kind="popoverPresentation" popoverAnchorView="DMg-cE-HlC" id="7tS-bU-Zzs">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -535,6 +537,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="79.710144927536234" y="128.80434782608697"/>
+        </scene>
+        <!--HelpScreen-->
+        <scene sceneID="KKV-zS-YwP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HelpScreen" id="Qep-LV-eRn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1B-ve-qXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="129"/>
         </scene>
     </scenes>
     <resources>
