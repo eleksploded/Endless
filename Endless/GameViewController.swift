@@ -217,7 +217,7 @@ class GameViewController: UIViewController {
         if game.Steel >= 1000 && game.Glass >= 800 {
             game.Steel -= 1000
             game.Glass -= 800
-            game.EnergyNum += 32
+            game.HydroNum += 1
         }
     }
     
@@ -242,7 +242,7 @@ class GameViewController: UIViewController {
         if game.Glass >= 200 && game.Concrete >= 800 {
             game.Glass -= 200
             game.Concrete -= 800
-            game.EnergyNum += 128
+            game.BurnerNum += 1
         }
     }
     
@@ -312,7 +312,7 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameViewController.Main), userInfo: nil, repeats: true)
     }
     func SaveTimer() {
-        timer2 = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(GameViewController.save), userInfo: nil, repeats: true)
+        timer2 = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(GameViewController.save), userInfo: nil, repeats: true)
         
     }
     
@@ -334,6 +334,8 @@ class GameViewController: UIViewController {
         game.OilNum = (PlistManager.sharedInstance.getValueForKey(key: "OilNum"))
         game.PlasticNum = (PlistManager.sharedInstance.getValueForKey(key: "PlasticNum"))
         game.FiberNum = (PlistManager.sharedInstance.getValueForKey(key: "FiberNum"))
+        game.BurnerNum = (PlistManager.sharedInstance.getValueForKey(key: "BurnerNum"))
+        game.HydroNum = (PlistManager.sharedInstance.getValueForKey(key: "HydroNum"))
         
         game.Log = (PlistManager.sharedInstance.getValueForKey(key: "Log"))
         game.Stone = (PlistManager.sharedInstance.getValueForKey(key: "Stone"))
@@ -377,7 +379,7 @@ class GameViewController: UIViewController {
         
         PlistManager.sharedInstance.saveValue(value: game.LogNum as AnyObject, forKey: "LogNum")
         PlistManager.sharedInstance.saveValue(value: game.StoneNum as AnyObject, forKey: "StoneNum")
-        PlistManager.sharedInstance.saveValue(value: game.PlankNum as AnyObject, forKey: "PlankNum")
+        PlistManager.sharedInstance.saveValue(value: game.PlankNum as AnyObject, forKey: "BoardNum")
         PlistManager.sharedInstance.saveValue(value: game.CharcoalNum as AnyObject, forKey: "CharcoalNum")
         PlistManager.sharedInstance.saveValue(value: game.CoalNum as AnyObject, forKey: "CoalNum")
         PlistManager.sharedInstance.saveValue(value: game.OreNum as AnyObject, forKey: "OreNum")

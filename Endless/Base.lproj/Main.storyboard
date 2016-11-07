@@ -488,7 +488,9 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-cE-HlC">
                                                         <rect key="frame" x="328.33333333333326" y="0.0" width="65.666666666666686" height="30"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Help">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="ChangeScreen:" destination="BV1-FR-VrT" eventType="touchUpInside" id="TOn-Do-bQd"/>
                                                             <segue destination="Qep-LV-eRn" kind="popoverPresentation" popoverAnchorView="DMg-cE-HlC" id="7tS-bU-Zzs">

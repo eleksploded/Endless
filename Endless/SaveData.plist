@@ -10,6 +10,10 @@
 	<integer>1</integer>
 	<key>Energy</key>
 	<integer>0</integer>
+	<key>BurnerNum</key>
+	<integer>0</integer>
+	<key>HydroNum</key>
+	<integer>0</integer>
 	<key>win</key>
 	<integer>0</integer>
 	<key>Log</key>

@@ -26,6 +26,8 @@ class MainGame {
     var OilNum:Int = 0
     var PlasticNum:Int = 0
     var FiberNum:Int = 0
+    var BurnerNum:Int = 0
+    var HydroNum:Int = 0
     
     var Log:Int = 0
     var Stone:Int = 0
@@ -84,9 +86,18 @@ class MainGame {
             Steel = Steel + (SteelNum * 2)
         }
         
-        //REDO!!!
+        
         Energy += (EnergyNum * 2)
-        //End REDO!!!
+        
+        if Coal >= BurnerNum * 8 {
+            Coal -= BurnerNum
+            Energy += BurnerNum * 128
+        }
+        
+        if Water >= HydroNum * 16 {
+            Water -= HydroNum * 16
+            Energy += HydroNum * 32
+        }
         
         if Energy >= SandNum * 8{
             Energy -= SandNum * 8
