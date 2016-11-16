@@ -172,7 +172,7 @@ class PlistManager {
     }
   }
   
-  func saveValue(value:AnyObject, forKey:String) {
+  func saveValue(value:Int, forKey:String) {
     
     if let plist = Plist(name: plistFileName) {
       
@@ -181,7 +181,7 @@ class PlistManager {
       if let dictValue = dict[forKey] {
         
         if type(of: value) != type(of: dictValue) {
-          print("[PlistManager] WARNING: You are saving a \(type(of: value)) typed value into a \(type(of: dictValue)) typed value. Best practice is to save Int values to Int fields, String values to String fields etc. (For example: '_NSContiguousString' to '__NSCFString' is ok too; they are both String types) If you believe that this mismatch in the types of the values is ok and will not break your code than disregard this message.")
+          //print("[PlistManager] WARNING: You are saving a \(type(of: value)) typed value into a \(type(of: dictValue)) typed value. Best practice is to save Int values to Int fields, String values to String fields etc. (For example: '_NSContiguousString' to '__NSCFString' is ok too; they are both String types) If you believe that this mismatch in the types of the values is ok and will not break your code than disregard this message.")
         }
         
         dict[forKey] = value
@@ -193,8 +193,8 @@ class PlistManager {
       } catch {
         print(error)
       }
-      print("[PlistManager] An Action has been performed. You can check if it went ok by taking a look at the current content of the plist file: ")
-      print("[PlistManager] \(plist.getValuesInPlistFile())")
+     // print("[PlistManager] An Action has been performed. You can check if it went ok by taking a look at the current content of the plist file: ")
+      //print("[PlistManager] \(plist.getValuesInPlistFile())")
     } else {
       print("[PlistManager] Unable to get Plist")
     }

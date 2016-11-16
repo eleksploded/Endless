@@ -46,7 +46,7 @@ class MainGame {
     var Plastic:Int = 0
     var Fiber:Int = 0
     
-    var active:Int = 1
+    var active:Int = 0
     var win:Int = 0
    // print("Main Vsriables Loaded")
     

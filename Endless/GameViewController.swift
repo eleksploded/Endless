@@ -39,11 +39,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if game.active == 0 {
-            timer2.invalidate()
-        }
         game.active = 1
         scheduledTimerWithTimeInterval()
+        SaveTimer()
         print("Loaded")
     }
 
@@ -52,7 +50,7 @@ class GameViewController: UIViewController {
     }
     
     func UpdateLabels() {
-        print("Refresh Screen")
+        //print("Refresh Screen")
         LogNumber.text = String(game.Log)
         StoneNumber.text = String(game.Stone)
         BoardNumber.text = String(game.Plank)
@@ -280,9 +278,9 @@ class GameViewController: UIViewController {
     
     
     @IBAction func ChangeScreen(_ sender: Any) {
+        timer2.invalidate()
         self.save()
         game.active = 0
-        SaveTimer()
     }
     
     func Main() {
@@ -294,14 +292,14 @@ class GameViewController: UIViewController {
         }
         if game.active == -1 {
             save()
-            print("Active = -1")
+            //print("Active = -1")
             timer.invalidate()
         } else if game.active == 1 {
-            print("Active = 1")
+            //print("Active = 1")
             game.math()
             UpdateLabels()
         } else if game.active == 0 {
-            print("Active = 0")
+            //print("Active = 0")
             game.math()
         }
     }
@@ -360,41 +358,43 @@ class GameViewController: UIViewController {
     
     //Saving Function
     func save() {
-        PlistManager.sharedInstance.saveValue(value: game.Log as AnyObject, forKey: "Log")
-        PlistManager.sharedInstance.saveValue(value: game.Stone as AnyObject, forKey: "Stone")
-        PlistManager.sharedInstance.saveValue(value: game.Plank as AnyObject, forKey: "Board")
-        PlistManager.sharedInstance.saveValue(value: game.Charcoal as AnyObject, forKey: "Charcoal")
-        PlistManager.sharedInstance.saveValue(value: game.Coal as AnyObject, forKey: "Coal")
-        PlistManager.sharedInstance.saveValue(value: game.Ore as AnyObject, forKey: "Ore")
-        PlistManager.sharedInstance.saveValue(value: game.Iron as AnyObject, forKey: "Iron")
-        PlistManager.sharedInstance.saveValue(value: game.Steel as AnyObject, forKey: "Steel")
-        PlistManager.sharedInstance.saveValue(value: game.Energy as AnyObject, forKey: "Energy")
-        PlistManager.sharedInstance.saveValue(value: game.Sand as AnyObject, forKey: "Sand")
-        PlistManager.sharedInstance.saveValue(value: game.Glass as AnyObject, forKey: "Glass")
-        PlistManager.sharedInstance.saveValue(value: game.Water as AnyObject, forKey: "Water")
-        PlistManager.sharedInstance.saveValue(value: game.Concrete as AnyObject, forKey: "Concrete")
-        PlistManager.sharedInstance.saveValue(value: game.Oil as AnyObject, forKey: "CrudeOil")
-        PlistManager.sharedInstance.saveValue(value: game.Plastic as AnyObject, forKey: "Plastic")
-        PlistManager.sharedInstance.saveValue(value: game.Fiber as AnyObject, forKey: "Fiber")
+        print("Saving")
+        PlistManager.sharedInstance.saveValue(value: game.Log as Int, forKey: "Log")
+        PlistManager.sharedInstance.saveValue(value: game.Stone as Int, forKey: "Stone")
+        PlistManager.sharedInstance.saveValue(value: game.Plank as Int, forKey: "Board")
+        PlistManager.sharedInstance.saveValue(value: game.Charcoal as Int, forKey: "Charcoal")
+        PlistManager.sharedInstance.saveValue(value: game.Coal as Int, forKey: "Coal")
+        PlistManager.sharedInstance.saveValue(value: game.Ore as Int, forKey: "Ore")
+        PlistManager.sharedInstance.saveValue(value: game.Iron as Int, forKey: "Iron")
+        PlistManager.sharedInstance.saveValue(value: game.Steel as Int, forKey: "Steel")
+        PlistManager.sharedInstance.saveValue(value: game.Energy as Int, forKey: "Energy")
+        PlistManager.sharedInstance.saveValue(value: game.Sand as Int, forKey: "Sand")
+        PlistManager.sharedInstance.saveValue(value: game.Glass as Int, forKey: "Glass")
+        PlistManager.sharedInstance.saveValue(value: game.Water as Int, forKey: "Water")
+        PlistManager.sharedInstance.saveValue(value: game.Concrete as Int, forKey: "Concrete")
+        PlistManager.sharedInstance.saveValue(value: game.Oil as Int, forKey: "CrudeOil")
+        PlistManager.sharedInstance.saveValue(value: game.Plastic as Int, forKey: "Plastic")
+        PlistManager.sharedInstance.saveValue(value: game.Fiber as Int, forKey: "Fiber")
         
-        PlistManager.sharedInstance.saveValue(value: game.LogNum as AnyObject, forKey: "LogNum")
-        PlistManager.sharedInstance.saveValue(value: game.StoneNum as AnyObject, forKey: "StoneNum")
-        PlistManager.sharedInstance.saveValue(value: game.PlankNum as AnyObject, forKey: "BoardNum")
-        PlistManager.sharedInstance.saveValue(value: game.CharcoalNum as AnyObject, forKey: "CharcoalNum")
-        PlistManager.sharedInstance.saveValue(value: game.CoalNum as AnyObject, forKey: "CoalNum")
-        PlistManager.sharedInstance.saveValue(value: game.OreNum as AnyObject, forKey: "OreNum")
-        PlistManager.sharedInstance.saveValue(value: game.IronNum as AnyObject, forKey: "IronNum")
-        PlistManager.sharedInstance.saveValue(value: game.SteelNum as AnyObject, forKey: "SteelNum")
-        PlistManager.sharedInstance.saveValue(value: game.EnergyNum as AnyObject, forKey: "EnergyNum")
-        PlistManager.sharedInstance.saveValue(value: game.SandNum as AnyObject, forKey: "SandNum")
-        PlistManager.sharedInstance.saveValue(value: game.GlassNum as AnyObject, forKey: "GlassNum")
-        PlistManager.sharedInstance.saveValue(value: game.WaterNum as AnyObject, forKey: "WaterNum")
-        PlistManager.sharedInstance.saveValue(value: game.ConcreteNum as AnyObject, forKey: "ConcreteNum")
-        PlistManager.sharedInstance.saveValue(value: game.OilNum as AnyObject, forKey: "OilNum")
-        PlistManager.sharedInstance.saveValue(value: game.PlasticNum as AnyObject, forKey: "PlasticNum")
-        PlistManager.sharedInstance.saveValue(value: game.FiberNum as AnyObject, forKey: "FiberNum")
+        PlistManager.sharedInstance.saveValue(value: game.LogNum as Int, forKey: "LogNum")
+        PlistManager.sharedInstance.saveValue(value: game.StoneNum as Int, forKey: "StoneNum")
+        PlistManager.sharedInstance.saveValue(value: game.PlankNum as Int, forKey: "BoardNum")
+        PlistManager.sharedInstance.saveValue(value: game.CharcoalNum as Int, forKey: "CharcoalNum")
+        PlistManager.sharedInstance.saveValue(value: game.CoalNum as Int, forKey: "CoalNum")
+        PlistManager.sharedInstance.saveValue(value: game.OreNum as Int, forKey: "OreNum")
+        PlistManager.sharedInstance.saveValue(value: game.IronNum as Int, forKey: "IronNum")
+        PlistManager.sharedInstance.saveValue(value: game.SteelNum as Int, forKey: "SteelNum")
+        PlistManager.sharedInstance.saveValue(value: game.EnergyNum as Int, forKey: "EnergyNum")
+        PlistManager.sharedInstance.saveValue(value: game.SandNum as Int, forKey: "SandNum")
+        PlistManager.sharedInstance.saveValue(value: game.GlassNum as Int, forKey: "GlassNum")
+        PlistManager.sharedInstance.saveValue(value: game.WaterNum as Int, forKey: "WaterNum")
+        PlistManager.sharedInstance.saveValue(value: game.ConcreteNum as Int, forKey: "ConcreteNum")
+        PlistManager.sharedInstance.saveValue(value: game.OilNum as Int, forKey: "OilNum")
+        PlistManager.sharedInstance.saveValue(value: game.PlasticNum as Int, forKey: "PlasticNum")
+        PlistManager.sharedInstance.saveValue(value: game.FiberNum as Int, forKey: "FiberNum")
         
-        PlistManager.sharedInstance.saveValue(value: game.win as AnyObject, forKey: "win")
+        PlistManager.sharedInstance.saveValue(value: game.win as Int, forKey: "win")
+        print("Saved")
     }
     
 }
